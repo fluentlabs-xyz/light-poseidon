@@ -15,6 +15,7 @@
 //! ```bash
 //! sage generate_parameters_grain.sage 1 0 254 3 8 57 0x30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f0000001
 //! ```
+use alloc::vec;
 pub const FULL_ROUNDS: usize = 8;
 pub const PARTIAL_ROUNDS: [usize; 15] =
     [56, 57, 56, 60, 60, 63, 64, 63, 60, 66, 60, 65, 70, 60, 64];
@@ -33,7 +34,7 @@ use crate::{PoseidonError, PoseidonParameters};
 use ark_ff::PrimeField;
 // to avoid warnings when width_limit_13 feature is used
 #[allow(unused_variables)]
-pub fn get_poseidon_parameters<F: PrimeField + std::convert::From<ark_ff::BigInteger256>>(
+pub fn get_poseidon_parameters<F: PrimeField + core::convert::From<ark_ff::BigInteger256>>(
     t: u8,
 ) -> Result<PoseidonParameters<F>, PoseidonError> {
     if t == 0_u8 {

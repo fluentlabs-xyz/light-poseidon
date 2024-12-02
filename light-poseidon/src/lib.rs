@@ -132,6 +132,10 @@
 //!
 //! This library has been audited by [Veridise](https://veridise.com/). You can
 //! read the audit report [here](https://github.com/Lightprotocol/light-poseidon/blob/main/assets/audit.pdf).
+#![cfg_attr(not(feature = "std"), no_std)]
+extern crate alloc;
+
+use alloc::vec::Vec;
 use ark_bn254::Fr;
 use ark_ff::{BigInteger, PrimeField, Zero};
 use thiserror::Error;
